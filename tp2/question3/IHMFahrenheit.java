@@ -3,7 +3,9 @@ package question3;
 import question1.*;
 import javax.swing.*;
 import java.awt.*;
+
 import java.awt.event.*;
+import static java.lang.Integer.parseInt;
 
 public class IHMFahrenheit extends JFrame implements ActionListener{
   private JTextField entree = new JTextField( 6 );
@@ -32,11 +34,18 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
    */
   public void actionPerformed( ActionEvent ae ){
     try{
-      int fahrenheit = 0; // valeur est une String et doit être convertie en entier, voir java.lang.Integer méthode parseInt (--> try/catch)
+      FahrenheitCelsius objet= new FahrenheitCelsius();
+      int fahrenheit =Integer.parseInt(entree.getText()); // valeur est une String et doit être convertie en entier, voir java.lang.Integer méthode parseInt (--> try/catch)
       float celsius = 0F; // à compléter, en appelant la méthode ad'hoc de la question2 
       // un test ici pour le zéro absolu (-273.1)
-
-      sortie.setText( Float.toString( celsius));
+      float test =objet.fahrenheitEnCelsius(fahrenheit);
+      
+      if(test< -273.1F){
+          celsius = -273.1F;
+      }else{
+          celsius=objet.fahrenheitEnCelsius(fahrenheit);
+      }
+      sortie.setText( Float.toString(celsius));
     }catch(NumberFormatException nfe){
       sortie.setText("error ! ");
     }
@@ -45,5 +54,19 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
   
   public static void main(String[] args){
       new IHMFahrenheit();
+    }
+    
+    /** 
+      * la méthode à compléter. 
+      *   @param f la valeur en degré Fahrenheit
+      *   @return  la conversion en degré Celsius
+      */
+      public static float fahrenheitEnCelsius(int f) {
+        
+        float celsius  = ((f- 32)*5)/9;
+        float r = (float) (((int)celsius*10)/10.0) ;
+  
+        return r; // ? compl?ter en rempla?ant ce return 0.F par la fonction
+                    // de conversion
     }
 }
