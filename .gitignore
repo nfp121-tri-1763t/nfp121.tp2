@@ -3,3 +3,5 @@ _site
 .sass-cache
 Gemfile.lock
 *.gem
+/JavaApplication9/nbproject/private/
+/JavaApplication9/build/
