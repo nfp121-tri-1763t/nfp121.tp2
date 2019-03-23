@@ -1,6 +1,6 @@
 package question3;
 
-import question1.*;
+import question2.*;
 import javax.swing.*;
 import java.awt.*;
 
