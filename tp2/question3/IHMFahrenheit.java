@@ -42,10 +42,8 @@ public class IHMFahrenheit extends JFrame implements ActionListener{
       
       if(test< -273.1F){
           celsius = -273.1F;
-      }else{
-          celsius=objet.fahrenheitEnCelsius(fahrenheit);
       }
-      sortie.setText( Float.toString(celsius));
+sortie.setText( Float.toString(celsius));
     }catch(NumberFormatException nfe){
       sortie.setText("error ! ");
     }
